@@ -191,76 +191,81 @@ button:hover {
     background-color: #09283a;
 }
 
-/* Responsive design  
+/* Responsive design for tablets (max-width: 768px) */
 @media (max-width: 768px) {
     .image-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 10px;  
     }
     .modal-content {
-        width: 90%;
-    }
-}
-@media (max-width: 480px) {
-    .image-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
-    .modal-content {
-        width: 100%;
+        width: 85%;  
     }
     .modal-image {
-        width: 100%;
-        height: auto;
-    }
-} */
-
-/* Responsive design for tablets and smaller desktops */
-@media (max-width: 768px) {
-    .image-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-        gap: 10px; 
-    }
-    .modal-content {
-        width: 80%; 
+        width: 100%;  
+        height: auto;  
     }
     .header h1 {
-        font-size: 2em; 
+        font-size: 2em;  
     }
     .quote {
-        font-size: 1.2em; 
-    #search-input {
-        width: 250px; 
-    }
-}
-}
-
-/* Responsive design for mobile devices */
-@media (max-width: 480px) {
-    .image-gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-        gap: 5px; /* Reduce gap for better fit */
-    }
-    .modal-content {
-        width: 90%; 
-    }
-    .modal-image {
-        width: 100%;
-        height: auto;
-    }
-    .header h1 {
-        font-size: 1.8em; 
-    }
-    .quote {
-        font-size: 1em; 
+        font-size: 1.2em;  
     }
     #search-input {
-        width: 200px; 
+        width: 230px; 
     }
     button {
-        font-size: 14px; 
-        padding: 8px 15px; 
+        font-size: 14px;  
+        padding: 10px 15px;  
     }
     .pagination-container button {
-        padding: 8px 15px; 
+        padding: 10px 15px;  
+    }
+    .thumbnail {
+        width: 100%;  
+        height: 160px; 
+    }
+}
+
+/* Responsive design for mobile devices (max-width: 425px) */
+@media (max-width: 425px) {
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 5px;  
+    }
+    .modal-content {
+        width: 90%;  
+    }
+    .modal-image {
+        width: 100%; 
+        height: auto;  
+    }
+    .header {
+        padding: 10px;  
+    }
+    .header h1 {
+        font-size: 1.5em;  
+    }
+    .quote {
+        font-size: 1em;  
+    }
+    #search-input {
+        width: 180px;  
+        padding: 8px;  
+        font-size: 14px;  
+    }
+    button {
+        font-size: 14px;  
+        padding: 8px 12px;  
+    }
+    .pagination-container button {
+        padding: 6px 10px;  
+    }
+    .thumbnail {
+        width: 95%;  
+        height: 120px;  
+    }
+    .noImagesMessage {
+        font-size: 1em;  
     }
 }
 
