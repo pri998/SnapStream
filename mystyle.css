@@ -1,0 +1,417 @@
+body {
+    background-color: #EFD6AC; 
+    margin: 0;
+}
+
+.header {
+    background-color: #04151f; 
+    padding: 20px; /* Padding around the text */
+    text-align: center; /* Center the text */
+    border-radius: 0px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the header */
+    color: #d05f1e; /* Text color */
+    box-shadow: 0 4px 8px rgba(2, 0, 34, 0.2); /* Subtle shadow for a 3D effect */
+}
+
+.header h1 {
+    margin: 0; 
+    font-size: 2.5em; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; */
+}
+
+.quote {
+    font-size: 1.5em; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; 
+    color: #283618; 
+    margin: 15px auto; 
+    max-width: 800px; /*max width for better alignment */
+    flex-wrap: wrap;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Increased gap between items */
+    margin: 10px auto;
+    width: fit-content;
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 1em;
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#search-button {
+    padding: 10px 10px;
+    font-size: 1em;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #04151f;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+#search-button:hover {
+    background-color: #09283a;
+}
+
+/* Favorites Button Styling */
+#favorites-button {
+    padding: 10px 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #04151f;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#favorites-button:hover {
+    background-color: #584221;
+}
+
+/* Ensure Search and Favorites Buttons Align Properly */
+#search-button,
+#favorites-button {
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    margin: 20px auto;
+}
+
+.daily-quote {
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #04151f;
+}
+
+
+
+/* Thumbnail image styling */
+.thumbnail {
+    width: 240px; /*100%;*/
+    height: 160px; /*auto;*/
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.5s;
+    border: 2px solid #04151f; /* Adding a border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding a shadow */
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Modal styling */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.image-details {
+    margin-top: 20px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #04151f;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #04151f;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px; 
+    margin-bottom: 10px; 
+}
+
+.pagination-container button {
+    margin: 0 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #04151f;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.pagination-container button:hover {
+    background-color: #09283a;
+}
+
+/* Responsive design for tablets and smaller devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust minimum width for images */
+        gap: 10px; /* Adjust gap between images */
+    }
+    .modal-content {
+        width: 85%; /* Make modal content slightly narrower for better fit */
+    }
+    .modal-image {
+        width: 100%; /* Ensure modal image takes up the full modal width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .header h1 {
+        font-size: 2em; /* Adjust the font size of the header */
+    }
+    .quote {
+        font-size: 1.2em; /* Adjust the font size of quotes */
+    }
+    #search-input {
+        width: 230px; /* Adjust the search input width */
+    }
+    button {
+        font-size: 14px; /* Adjust button font size */
+        padding: 10px 15px; /* Adjust padding for buttons */
+    }
+    .pagination-container button {
+        padding: 10px 15px; /* Adjust pagination button padding */
+    }
+    .thumbnail {
+        width: 100%; /* Ensure each image takes full grid space */
+        height: 160px; /* Maintain aspect ratio for thumbnails */
+    }
+}
+
+/* Responsive design for mobile devices (max-width: 425px) */
+@media (max-width: 425px) {
+    .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Adjust minimum width for images to fit smaller screens */
+        gap: 5px; /* Reduce gap between images */
+    }
+    .modal-content {
+        width: 90%; /* Make modal content fill more of the screen */
+    }
+    .modal-image {
+        width: 100%; /* Ensure modal image takes up full modal width */
+        height: auto; /* Maintain aspect ratio */
+    }
+    .header {
+        padding: 10px; /* Adjust header padding */
+    }
+    .header h1 {
+        font-size: 1.5em; /* Adjust font size for header on smaller screens */
+    }
+    .quote {
+        font-size: 1em; /* Adjust font size for quotes */
+    }
+    #search-input {
+        width: 180px; /* Shrink the search input width */
+        padding: 8px; /* Adjust padding for search input */
+        font-size: 14px; /* Make text size smaller for mobile */
+    }
+    button {
+        font-size: 14px; /* Adjust button font size for mobile */
+        padding: 8px 12px; /* Adjust padding for mobile */
+    }
+    .pagination-container button {
+        padding: 6px 10px; /* Adjust pagination button padding */
+    }
+    .thumbnail {
+        width: 95%; /* Ensure thumbnails take up full width inside the grid */
+        height: 120px; /* Maintain the aspect ratio of thumbnails */
+    }
+    .noImagesMessage {
+        font-size: 1em; /* Adjust "No images" message font size */
+    }
+}
+
+.noImagesMessage {
+    font-size: 18px;
+    color: rgb(207, 10, 10);
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Favorites Modal Styling */
+#favorites-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Modal Content Box */
+#favorites-modal .modal-content {
+    background-color:#d6ceda;
+    ;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    text-align: center;
+}
+/* Modal Header */
+#favorites-modal h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #050504;
+}
+/* Favorites Gallery Grid */
+#favorites-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+/* Styling Individual Favorite Images */
+#favorites-gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+#favorites-gallery img:hover {
+    transform: scale(1.05);
+}
+/* Close Button for Modal */
+#close-favorites {
+    color: #111012;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+#close-favorites:hover {
+    color: #e60000;
+}
+
+#surprise-button {
+    padding: 10px 10px;
+    font-size: 0.9em;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #860309;
+    color: rgb(255, 255, 255);
+    cursor: pointer; 
+    transition: background-color 0.5s ease;
+}
+#surprise-button:hover {
+    background-color: #bb575c; /* Slightly darker on hover */
+}
+
+/* Party Emoji Animation */
+.party-emoji {
+    position: fixed;
+    font-size: 3rem;
+    animation: party-fall 2s ease-out forwards;
+    pointer-events: none; /* Prevent interaction */
+    z-index: 9999; /* Above everything */
+}
+
+@keyframes party-fall {
+    0% {
+        transform: translateY(-100px) scale(0.8) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) scale(1.2) rotate(360deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) scale(1) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Surprise Me Modal Quote */
+.surprise-quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #04151f;
+    border-left: 4px solid #04151f;
+    border-right: 4px solid #04151f;
+    padding: 10px 15px;
+    line-height: 1.5;
+    background-color: #d6ceda;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
