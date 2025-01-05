@@ -50,7 +50,7 @@ function displayImages(images, noImages) {
                         <p>Photo by: ${image.user}</p>
                     </div>
                     <button id="download-button">Download</button>
-                    <button id="favorite-button">Add to Favourite</button>
+                    <button id="favorite-button">Favourite</button>
                     <button id="share-button">Share</button>
                 </div>
             `;
