@@ -311,18 +311,30 @@ function displayFavorites() {
             });
 
             // Share favorite image
-            document.getElementById('share-button').addEventListener('click', () => {
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'Check out this image!',
-                        url: url
-                    })
-                    .then(() => console.log('Image shared successfully'))
-                    .catch(err => console.error('Error sharing image:', err));
-                } else {
-                    alert('Sharing not supported on this browser');
+            document.getElementById('share-button').addEventListener('click', async () => {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error('Failed to fetch the image for sharing');
+                    const blob = await response.blob();
+                    
+                    const fileName = 'favourite_image.jpg'; // You can customize this as needed
+                    const imageFile = new File([blob], fileName, { type: blob.type });
+            
+                    if (navigator.share) {
+                        await navigator.share({
+                            files: [imageFile],
+                            title: 'Check out this image!',
+                            text: 'Look at this amazing image I found on SnapStream!',
+                        });
+                        console.log('Image shared successfully');
+                    } else {
+                        throw new Error('Sharing API not supported');
+                    }
+                } catch (error) {
+                    console.error('Error sharing image:', error);
+                    alert('Sharing not supported on this device or failed to share.');
                 }
-            });
+            });            
         });
         favoritesGallery.appendChild(img);
     });
