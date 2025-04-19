@@ -1,4 +1,4 @@
-Front-end model of a dynamic image gallery website using HTML, CSS, and JavaScript.
+Front-end model of a dynamic image gallery website using HTML, CSS, and JavaScript.  
 Link to website : https://pri998.github.io/SnapStream/
 
 SnapStream is your gateway to a world of stunning, high-quality images drawn straight from the Pixabay API.   
